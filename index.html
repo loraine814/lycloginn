@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 确保页面适配手机屏幕 -->
-    <title>动态时钟</title>
+    <title></title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,33 +12,32 @@
             margin: 0;
             padding: 0;
             background-image: url('微信图片_20241209110524.png');
+            background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;  /* 让背景图适应屏幕 */
             color: black;
-            display: flex;  /* 使用 Flexbox 布局 */
-            justify-content: center;  /* 水平居中 */
-            align-items: center;  /* 垂直居中 */
-            height: 100vh;  /* 占满整个屏幕 */
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
         }
 
+
         #time {
-            font-size: 8vw;  /* 字体大小根据视口宽度动态调整 */
+            font-size: 3.5em;
             font-weight: bold;
             position: absolute;
-            top: 40%;  /* 调整顶部位置 */
+            top: 45%;
             left: 50%;
             transform: translateX(-50%);
         }
 
         #monthDay {
-            font-size: 5vw;  /* 字体大小根据视口宽度动态调整 */
+            font-size: 3em;
             color: azure;
             position: absolute;
             bottom: 16%;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 51.5%;
         }
     </style>
 </head>
@@ -56,6 +55,8 @@
             const minutes = now.getMinutes().toString().padStart(2, '0');
             const seconds = now.getSeconds().toString().padStart(2, '0');
 
+
+
             const formattedTime = `${year}年${month}月${day}日 ${hours}:${minutes}:${seconds}`;
             document.getElementById("time").innerText = formattedTime;
 
@@ -66,7 +67,7 @@
         // 每秒更新时间
         setInterval(updateTime, 1000);
         updateTime();
+
+
     </script>
 </body>
-
-</html>
