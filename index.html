@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 确保页面适配手机屏幕 -->
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url('微信图片_20241209110524.png');
+
+            background-position: center;
+            background-repeat: no-repeat;
+            color: black;
+            height: 100vh;
+            display: flex;
+            /*满铺*/
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+
+        #time {
+            font-size: 3.5em;
+            font-weight: bold;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #monthDay {
+            font-size: 3em;
+            color: azure;
+            position: absolute;
+            bottom: 16%;
+            right: 51.5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="time"></div>
+    <div id="monthDay"></div>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+
+
+
+            const formattedTime = `${year}年${month}月${day}日 ${hours}:${minutes}:${seconds}`;
+            document.getElementById("time").innerText = formattedTime;
+
+            const monthDay = `预约时间 ${month}-${day}`;
+            document.getElementById("monthDay").innerText = monthDay;
+        }
+
+        // 每秒更新时间
+        setInterval(updateTime, 1000);
+        updateTime();
+
+
+    </script>
+</body>
